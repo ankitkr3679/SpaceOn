@@ -110,15 +110,26 @@ const ExpandableText = () => {
 };
 
 // ---------- Reusable UI ----------
+// const FeatureStatCard = ({ icon, label, value }) => (
+//   <div className="bg-white p-6 rounded-2xl text-center border shadow-sm hover:shadow-md transition-all duration-200">
+//     <div className="flex justify-center items-center w-12 h-12 mx-auto mb-4 rounded-full bg-[#020A64]/10 text-[#020A64] text-xl">
+//       {icon}
+//     </div>
+//     <p className="text-gray-500 text-sm">{label}</p>
+//     <p className="font-semibold text-lg text-[#020A64]">{value}</p>
+//   </div>
+// );
+
 const FeatureStatCard = ({ icon, label, value }) => (
-  <div className="bg-white p-6 rounded-2xl text-center border shadow-sm hover:shadow-md transition-all duration-200">
-    <div className="flex justify-center items-center w-12 h-12 mx-auto mb-4 rounded-full bg-[#020A64]/10 text-[#020A64] text-xl">
+  <div className="bg-white p-3 rounded-xl text-center  shadow-sm hover:shadow-md transition-all duration-200">
+    <div className="flex justify-center items-center w-10 h-10 mx-auto mb-2 rounded-full bg-[#020A64]/10 text-gray-500 text-lg">
       {icon}
     </div>
-    <p className="text-gray-500 text-sm">{label}</p>
-    <p className="font-semibold text-lg text-[#020A64]">{value}</p>
+    <p className="text-gray-500 text-xs">{label}</p>
+    <p className="font-semibold text-sm text-[#020A64]">{value}</p>
   </div>
 );
+
 
 // ---------- Feature Data ----------
 const FEATURE_STATS = [
@@ -131,15 +142,38 @@ const FEATURE_STATS = [
 ];
 
 // ---------- Feature Stats Section ----------
+// const FeatureStatsSection = () => {
+//   return (
+//     <section className="w-full py-2">
+//       <div
+//         className="
+//           grid gap-6
+//           grid-cols-1
+//           sm:grid-cols-2
+//           lg:[grid-template-columns:repeat(auto-fit,minmax(220px,1fr))]
+//         "
+//       >
+//         {FEATURE_STATS.map((stat, index) => (
+//           <FeatureStatCard
+//             key={index}
+//             icon={stat.icon}
+//             label={stat.label}
+//             value={stat.value}
+//           />
+//         ))}
+//       </div>
+//     </section>
+//   );
+// };
 const FeatureStatsSection = () => {
   return (
-    <section className="w-full py-2">
+    <section className="w-full "> {/* reduced vertical padding */}
       <div
         className="
-          grid gap-6
+          grid gap-3          /* smaller gap between cards */
           grid-cols-1
           sm:grid-cols-2
-          lg:[grid-template-columns:repeat(auto-fit,minmax(220px,1fr))]
+          md:grid-cols-3
         "
       >
         {FEATURE_STATS.map((stat, index) => (
@@ -148,6 +182,7 @@ const FeatureStatsSection = () => {
             icon={stat.icon}
             label={stat.label}
             value={stat.value}
+            className="p-3"
           />
         ))}
       </div>
@@ -383,44 +418,130 @@ const FaqSection = ({ items = FAQS, singleOpen = true, defaultOpen = null, align
   );
 };
 
+// /* ---------- Property Header (Responsive) ---------- */
+// const PropertyHeader = () => {
+//   return (
+//     <section className="w-full bg-white rounded-2xl  p-2">
+//       <div className="flex flex-col md:flex-row justify-between gap-6 items-start">
+//         {/* Left Section */}
+//         <div className="flex-1 space-y-4">
+//           {/* Price + Favorite + Share */}
+//           <div className="flex items-center justify-between flex-wrap gap-4">
+//             <h2 className="text-2xl font-bold text-[#020A64]">
+//               AED <span className="text-[#020A64]">140,000</span>{" "}
+//               <span className="text-sm font-medium text-[#020A64]">Yearly</span>
+//             </h2>
+//             <div className="flex items-center gap-3 flex-wrap">
+//               <button className="flex items-center gap-2 px-3 py-2 rounded-md border hover:bg-gray-100 text-sm font-medium">
+//                 <Heart size={18} className="text-red-600" />
+//                 <span>Favorite</span>
+//               </button>
+//               <button className="flex items-center gap-2 px-3 py-2 rounded-md border hover:bg-gray-100 text-sm font-medium">
+//                 <Share2 size={18} className="text-green-600" />
+//                 <span>Share</span>
+//               </button>
+//             </div>
+//           </div>
+
+//           {/* Property Info */}
+//           <div className="flex flex-wrap gap-4 text-gray-600">
+//             <div className="flex items-center gap-1">
+//               <User size={18} className="text-[#020A64]" />
+//               <span>500 +</span>
+//             </div>
+//             <div className="flex items-center gap-1">
+//               <Power size={18} className=" text-[#020A64]" />
+//               <span className="text-gray-600">200 watt</span>
+//             </div>
+//             <div className="flex items-center gap-1">
+//               <SiZebpay size={18} className="text-[#020A64]" />
+//               <span className="text-gray-600">8,211 sqft</span>
+//             </div>
+//           </div>
+
+//           {/* Subtitle (Event Info) */}
+//           <div className="flex items-center gap-2 text-gray-600 mt-1">
+//             <MapPin size={18} className="text-blue-500" />
+//             <span className="text-[#020A64]">
+//               Live Concert | 25th Sept 2025 | Dubai Expo Center
+//             </span>
+//           </div>
+//         </div>
+
+//         {/* Right Section - Agent Card */}
+//         <div className="flex-shrink-0 p-4 border rounded-md space-y-3 w-full md:w-[320px]">
+//           <div className="flex items-center gap-3">
+//             <img
+//               src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=500&auto=format&fit=crop&q=60"
+//               alt="Agent"
+//               className="w-16 h-16 rounded-md object-cover"
+//             />
+//             <div>
+//               <h4 className="font-semibold text-gray-900">Emad Abd El Hameid</h4>
+//               <a href="#" className="text-sm text-[#020A64] hover:underline">
+//                 View All Properties
+//               </a>
+//             </div>
+//           </div>
+
+//           <div className="flex flex-wrap lg:flex-nowrap gap-2 pt-2">
+//             <button className="flex-1 lg:flex-none flex items-center justify-center gap-2 px-3 py-2 border rounded-lg text-sm font-medium hover:bg-gray-50 transition">
+//               <Mail size={16} className="text-blue-500" /> Email
+//             </button>
+//             <button className="flex-1 lg:flex-none flex items-center justify-center gap-2 px-3 py-2 border rounded-lg text-sm font-medium hover:bg-gray-50 transition">
+//               <Phone size={16} className="text-red-500" /> Call
+//             </button>
+//             <button className="flex-1 lg:flex-none flex items-center justify-center gap-2 px-3 py-2 border rounded-lg text-sm font-medium hover:bg-gray-50 transition">
+//               <BsWhatsapp size={16} className="text-green-500" /> WhatsApp
+//             </button>
+//           </div>
+
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
 /* ---------- Property Header (Responsive) ---------- */
 const PropertyHeader = () => {
   return (
-    <section className="w-full bg-white rounded-2xl shadow-sm p-4">
+    <section className="w-full bg-white rounded-2xl p-4">
       <div className="flex flex-col md:flex-row justify-between gap-6 items-start">
         {/* Left Section */}
         <div className="flex-1 space-y-4">
           {/* Price + Favorite + Share */}
-          <div className="flex items-center justify-between flex-wrap gap-4">
-            <h2 className="text-2xl font-bold text-[#020A64]">
+          <div className="flex items-start justify-between flex-wrap gap-4">
+            <h2 className="text-2xl font-semibold text-[#020A64]">
               AED <span className="text-[#020A64]">140,000</span>{" "}
-              <span className="text-sm font-medium text-[#020A64]">Yearly</span>
+              <span className="text-sm font-normal text-[#020A64]">Yearly</span>
             </h2>
             <div className="flex items-center gap-3 flex-wrap">
-              <button className="flex items-center gap-2 px-3 py-2 rounded-md border hover:bg-gray-100 text-sm font-medium">
-                <Heart size={18} className="text-red-600" />
-                <span>Favorite</span>
-              </button>
-              <button className="flex items-center gap-2 px-3 py-2 rounded-md border hover:bg-gray-100 text-sm font-medium">
-                <Share2 size={18} className="text-green-600" />
-                <span>Share</span>
-              </button>
+              <div className="flex items-center gap-3 flex-wrap">
+                <button className="flex items-center gap-2 px-4 py-2 rounded-md shadow-sm bg-red-50 hover:bg-red-100 transition-all duration-200 text-sm font-medium text-gray-800 border border-gray-200">
+                  <Heart size={18} className="text-red-500" />
+                  <span>Favorite</span>
+                </button>
+                <button className="flex items-center gap-2 px-4 py-2 rounded-md shadow-sm bg-green-50 hover:bg-green-100 transition-all duration-200 text-sm font-medium text-gray-800 border border-gray-200">
+                  <Share2 size={18} className="text-green-500" />
+                  <span>Share</span>
+                </button>
+              </div>
+
             </div>
           </div>
 
           {/* Property Info */}
-          <div className="flex flex-wrap gap-4 text-gray-600">
+          <div className="flex flex-wrap gap-6 text-gray-600">
             <div className="flex items-center gap-1">
               <User size={18} className="text-[#020A64]" />
               <span>500 +</span>
             </div>
             <div className="flex items-center gap-1">
-              <Power size={18} className=" text-[#020A64]" />
-              <span className="text-gray-600">200 watt</span>
+              <Power size={18} className="text-[#020A64]" />
+              <span>200 watt</span>
             </div>
             <div className="flex items-center gap-1">
               <SiZebpay size={18} className="text-[#020A64]" />
-              <span className="text-gray-600">8,211 sqft</span>
+              <span>8,211 sqft</span>
             </div>
           </div>
 
@@ -434,14 +555,15 @@ const PropertyHeader = () => {
         </div>
 
         {/* Right Section - Agent Card */}
-        <div className="flex-shrink-0 p-4 border rounded-md space-y-3 w-full md:w-[320px]">
-          <div className="flex items-center gap-3">
+        <div className="flex-shrink-0 w-full md:w-[320px] shadow-sm rounded-md p-4 space-y-4 flex flex-col justify-start">
+          {/* Top section: image + name/link */}
+          <div className="flex items-start gap-3"> {/* changed from items-center to items-start */}
             <img
               src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=500&auto=format&fit=crop&q=60"
               alt="Agent"
               className="w-16 h-16 rounded-md object-cover"
             />
-            <div>
+            <div className="flex flex-col justify-start">
               <h4 className="font-semibold text-gray-900">Emad Abd El Hameid</h4>
               <a href="#" className="text-sm text-[#020A64] hover:underline">
                 View All Properties
@@ -449,19 +571,20 @@ const PropertyHeader = () => {
             </div>
           </div>
 
-          <div className="flex flex-wrap lg:flex-nowrap gap-2 pt-2">
-            <button className="flex-1 lg:flex-none flex items-center justify-center gap-2 px-3 py-2 border rounded-lg text-sm font-medium hover:bg-gray-50 transition">
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row gap-2">
+            <button className="flex-1 flex items-center justify-center gap-2 px-3 py-2 shadow-sm rounded-lg text-sm font-medium bg-blue-50 hover:bg-blue-100 transition">
               <Mail size={16} className="text-blue-500" /> Email
             </button>
-            <button className="flex-1 lg:flex-none flex items-center justify-center gap-2 px-3 py-2 border rounded-lg text-sm font-medium hover:bg-gray-50 transition">
+            <button className="flex-1 flex items-center justify-center gap-2 px-3 py-2 shadow-sm rounded-lg text-sm font-medium bg-red-50 hover:bg-red-100 transition">
               <Phone size={16} className="text-red-500" /> Call
             </button>
-            <button className="flex-1 lg:flex-none flex items-center justify-center gap-2 px-3 py-2 border rounded-lg text-sm font-medium hover:bg-gray-50 transition">
+            <button className="flex-1 flex items-center justify-center gap-2 px-3 py-2 shadow-sm rounded-lg text-sm font-medium bg-green-50 hover:bg-green-50 transition">
               <BsWhatsapp size={16} className="text-green-500" /> WhatsApp
             </button>
           </div>
-
         </div>
+
       </div>
     </section>
   );
@@ -510,17 +633,18 @@ const ListingDetails = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-10 sm:py-10 space-y-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-10 sm:py-10 space-y-5">
       {/* Title & Location */}
-      <header className="space-y-2">
-        <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-[#020A64]">
+      <header className="space-y-1">
+        <h1 className="text-2xl md:text-3xl font-normal tracking-tight text-[#020A64]">
           Space for events in Ras Al Khaimah
         </h1>
-        <p className="flex items-center gap-2 text-gray-700">
+        <p className="flex items-center gap-1 text-gray-700 text-sm md:text-base">
           <FaMapMarkerAlt className="text-red-500" aria-hidden="true" />
           <span>Umm Al Quwain, UAE</span>
         </p>
       </header>
+
 
       {/* Gallery */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-2">
@@ -566,7 +690,7 @@ const ListingDetails = () => {
         </div>
 
         {/* Right: Reservation card (40%) */}
-        <aside className="md:col-span-4 w-full bg-[#020A64] text-white rounded-2xl shadow-xl p-3 flex flex-col gap-6 md:sticky md:top-24">
+        {/* <aside className="md:col-span-4 w-full bg-[#020A64] text-white rounded-2xl shadow-xl p-3 flex flex-col gap-6 md:sticky md:top-24">
           <div>
             <p className="text-sm text-white/70">Estimated monthly</p>
             <p className="text-3xl font-bold tracking-tight">AED 208,333</p>
@@ -615,6 +739,61 @@ const ListingDetails = () => {
             ))}
           </div>
         </aside>
+         */}
+        <aside className="md:col-span-4 w-full bg-[#020A64] text-white rounded-2xl shadow-xl p-6 flex flex-col gap-6 md:sticky md:top-24">
+          {/* Estimated Monthly */}
+          <div className="text-center">
+            <p className="text-sm text-white/70">Estimated monthly</p>
+            <p className="text-3xl font-bold tracking-tight mt-1">AED 208,333</p>
+          </div>
+
+          {/* Date Inputs */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex-1 flex flex-col gap-1">
+              <label htmlFor="start-date" className="text-xs text-white/80">Start date</label>
+              <input
+                id="start-date"
+                type="date"
+                min={today}
+                className="w-full rounded-lg px-4 py-2 bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
+                aria-label="Start date"
+              />
+            </div>
+            <div className="flex-1 flex flex-col gap-1">
+              <label htmlFor="end-date" className="text-xs text-white/80">End date</label>
+              <input
+                id="end-date"
+                type="date"
+                min={today}
+                className="w-full rounded-lg px-4 py-2 bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
+                aria-label="End date"
+              />
+            </div>
+          </div>
+
+          {/* Reserve Button */}
+          <button className="w-full rounded-lg bg-white text-[#020A64] font-semibold text-sm py-3 hover:bg-white/90 transition">
+            Reserve now
+          </button>
+
+          {/* Feature Tags */}
+          <div className="mt-3 flex flex-wrap gap-2 justify-center text-xs sm:text-sm">
+            {[
+              { label: "KYC Verified", icon: <FaCheckCircle className="text-emerald-400" /> },
+              { label: "Secure payments", icon: <FaShieldAlt className="text-blue-400" /> },
+              { label: "24/7 Support", icon: <FaHeadset className="text-indigo-400" /> },
+            ].map((tag, i) => (
+              <span
+                key={i}
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/10 border border-white/20 backdrop-blur-sm text-white hover:bg-white/20 transition"
+              >
+                {tag.icon}
+                <span>{tag.label}</span>
+              </span>
+            ))}
+          </div>
+        </aside>
+
       </section>
 
 
@@ -652,7 +831,7 @@ const ListingDetails = () => {
           {SIMILAR_LISTINGS.map((l, i) => (
             <article
               key={i}
-              className="group rounded-2xl overflow-hidden bg-white border shadow-sm hover:shadow-md transition"
+              className="group rounded-2xl overflow-hidden bg-white border border-gray-300 shadow-sm hover:shadow-md transition"
             >
               <div className="relative w-full overflow-hidden">
                 <div className="w-full aspect-video">

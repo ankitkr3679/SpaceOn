@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Banner from "../assets/Banner.png";
+import Banner from "../assets/Banner.webp";
 
 const categories = [
   "All",

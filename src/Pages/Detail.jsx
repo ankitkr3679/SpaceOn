@@ -79,7 +79,7 @@ const PROPERTIES = Array.from({ length: 12 }).map((_, i) => {
         location: i % 2 ? "Zada Tower, Business Bay, Dubai" : "The Crest, Sobha Hartland",
         image: imgs[0],
         images: imgs,
-        agency: "Provident.",
+        agency: "Better Homes",
         rating: 4.5 + (i % 3) * 0.1,
         imagesCount: imgs.length,
     };
@@ -123,71 +123,195 @@ const Toggle = ({ checked, onChange, label }) => (
     </button>
 );
 
-/* ---------- Card ---------- */
+// /* ---------- Card ---------- */
+// const PropertyCard = ({ p }) => {
+//     const [slideIndex, setSlideIndex] = useState(0);
+//     const imgs = p.images?.length ? p.images : [p.image];
+
+//     return (
+//         <article className="group rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-md transition overflow-hidden">
+//             {/* On mobile, image sits on top with aspect-ratio; on md+ it becomes a two-column layout */}
+//             <div className="grid grid-cols-1 md:grid-cols-[minmax(280px,38%)_1fr]">
+//                 {/* Media */}
+//                 <div className="relative">
+//                     {/* Aspect ratio on small screens to avoid jumpy heights */}
+//                     <div className="md:h-auto">
+//                         <Swiper className="w-full h-full">
+//                             {imgs.map((src, i) => (
+//                                 <SwiperSlide key={i}>
+//                                     <img
+//                                         src={src}
+//                                         alt={p.sub}
+//                                         className="w-full h-full object-cover max-h-[350px] md:max-h-full rounded-t-2xl md:rounded-none"
+//                                         loading="lazy"
+//                                         decoding="async"
+//                                     />
+//                                 </SwiperSlide>
+//                             ))}
+//                         </Swiper>
+//                     </div>
+
+//                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+
+//                     {p.verified && (
+//                         <span className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-md bg-white/95 px-2 py-1 text-xs font-medium text-gray-800 shadow">
+//                             <FaCheckCircle className="text-emerald-600" />
+//                             Verified
+//                         </span>
+//                     )}
+
+//                     {p.premium && (
+//                         <span className="absolute top-3 left-28 inline-flex items-center gap-1 rounded-md bg-amber-100 text-amber-800 px-2 py-1 text-[11px] font-semibold shadow">
+//                             PREMIUM
+//                         </span>
+//                     )}
+
+//                     <button
+//                         type="button"
+//                         className="absolute top-3 right-3 grid place-items-center h-9 w-9 rounded-full bg-white/95 text-gray-700 hover:text-rose-500 shadow"
+//                         aria-label="Save listing"
+//                         title="Save"
+//                     >
+//                         <FaHeart />
+//                     </button>
+
+//                     <span className="absolute bottom-3 left-3 text-xs text-white bg-black/55 rounded-md px-2 py-1">
+//                         {slideIndex + 1} / {imgs.length}
+//                     </span>
+//                 </div>
+
+//                 {/* Details */}
+//                 <div className="p-4 sm:p-5 md:p-6 space-y-3">
+//                     <div className="flex flex-wrap items-center gap-2">
+//                         <p className="text-xl sm:text-2xl font-semibold text-gray-900">
+//                             {p.yearlyPrice}{" "}
+//                             <span className="text-xs sm:text-sm font-medium text-gray-500 inline-flex items-center gap-1">
+//                                 <FaShieldAlt className="opacity-70" />
+//                                 Yearly
+//                             </span>
+//                         </p>
+//                         <span className="ml-auto inline-flex items-center gap-1 rounded-full bg-yellow-50 text-yellow-700 border border-yellow-200 px-2 py-1 text-xs">
+//                             <FaStar className="text-yellow-500" /> {p.rating.toFixed(1)}
+//                         </span>
+//                     </div>
+
+//                     <p className="text-gray-800 font-medium">{p.title}</p>
+
+//                     {/* (Beds/baths/sqft removed as requested earlier) */}
+//                     <p className="text-gray-900 font-semibold">
+//                         {p.furnishing} <span className="text-gray-700">| {p.sub}</span>
+//                     </p>
+
+//                     <div className="flex items-center gap-2 text-gray-600">
+//                         <FaMapMarkerAlt className="text-red-500 shrink-0" />
+//                         <span className="truncate">{p.location}</span>
+//                     </div>
+
+//                     {/* Actions: wrap on small screens */}
+//                     <div className="pt-2 flex flex-wrap items-center gap-2">
+//                         <button
+//                             type="button"
+//                             className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm text-gray-700 hover:bg-gray-50"
+//                             title="Email"
+//                             aria-label="Email"
+//                         >
+//                             <FaEnvelope className="text-blue-500" />
+//                             <span className="hidden sm:inline">Email</span>
+//                         </button>
+//                         <button
+//                             type="button"
+//                             className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm text-gray-700 hover:bg-gray-50"
+//                             title="Call"
+//                             aria-label="Call"
+//                         >
+//                             <FaPhoneAlt className="text-red-500" />
+//                             <span className="hidden sm:inline">Call</span>
+//                         </button>
+//                         <button
+//                             type="button"
+//                             className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm text-gray-700 hover:bg-emerald-50"
+//                             title="WhatsApp"
+//                             aria-label="WhatsApp"
+//                         >
+//                             <FaWhatsapp className="text-green-600" />
+//                             <span className="hidden sm:inline">WhatsApp</span>
+//                         </button>
+
+//                         <span className="ml-auto text-xs text-gray-500">{p.agency}</span>
+//                     </div>
+//                 </div>
+//             </div>
+//         </article>
+//     );
+// };
+
+
 const PropertyCard = ({ p }) => {
     const [slideIndex, setSlideIndex] = useState(0);
     const imgs = p.images?.length ? p.images : [p.image];
 
     return (
         <article className="group rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-md transition overflow-hidden">
-            {/* On mobile, image sits on top with aspect-ratio; on md+ it becomes a two-column layout */}
-            <div className="grid grid-cols-1 md:grid-cols-[minmax(280px,38%)_1fr]">
-                {/* Media */}
-                <div className="relative">
-                    {/* Aspect ratio on small screens to avoid jumpy heights */}
-                    <div className="aspect-[16/10] md:aspect-auto md:h-full">
-                        <Swiper
-                            modules={[Pagination, Autoplay]}
-                            pagination={{ clickable: true }}
-                            autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }}
-                            loop
-                            onSlideChange={(s) => setSlideIndex(s.realIndex ?? s.activeIndex)}
-                            className="h-full"
-                        >
-                            {imgs.map((src, i) => (
-                                <SwiperSlide key={i}>
-                                    <img
-                                        src={src}
-                                        alt={p.sub}
-                                        className="w-full h-full object-cover"
-                                        loading="lazy"
-                                        decoding="async"
-                                    />
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
-                    </div>
+            <div className="grid grid-cols-1 md:grid-cols-[minmax(280px,38%)_1fr] auto-rows-auto">
+                {/* Left Image */}
+                <div className="relative md:h-auto flex items-start">
+                    <Swiper
+                        modules={[Pagination, Autoplay]}
+                        pagination={{ clickable: true }}
+                        autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+                        loop
+                        onSlideChange={(s) => setSlideIndex(s.realIndex ?? s.activeIndex)}
+                        className="w-full h-auto"
+                    >
+                        {imgs.map((src, i) => (
+                            <SwiperSlide key={i} className="h-auto">
+                                <img
+                                    src={src}
+                                    alt={p.sub}
+                                    className="w-full h-auto object-cover max-h-[180px] md:max-h-[250px] rounded-t-2xl md:rounded-none"
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
 
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+                    {/* Gradient background with lower z-index */}
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent rounded-t-2xl md:rounded-none z-0" />
 
+                    {/* Verified badge */}
                     {p.verified && (
-                        <span className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-md bg-white/95 px-2 py-1 text-xs font-medium text-gray-800 shadow">
+                        <span className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-md bg-white/95 px-2 py-1 text-xs font-medium text-gray-800 shadow z-10">
                             <FaCheckCircle className="text-emerald-600" />
                             Verified
                         </span>
                     )}
 
+                    {/* Premium badge */}
                     {p.premium && (
-                        <span className="absolute top-3 left-28 inline-flex items-center gap-1 rounded-md bg-amber-100 text-amber-800 px-2 py-1 text-[11px] font-semibold shadow">
+                        <span className="absolute top-3 left-28 inline-flex items-center gap-1 rounded-md bg-amber-100 text-amber-800 px-2 py-1 text-[11px] font-semibold shadow z-10">
                             PREMIUM
                         </span>
                     )}
 
+                    {/* Save button */}
                     <button
                         type="button"
-                        className="absolute top-3 right-3 grid place-items-center h-9 w-9 rounded-full bg-white/95 text-gray-700 hover:text-rose-500 shadow"
+                        className="absolute top-3 right-3 grid place-items-center h-9 w-9 rounded-full bg-white/95 text-gray-700 hover:text-rose-500 shadow z-10"
                         aria-label="Save listing"
                         title="Save"
                     >
                         <FaHeart />
                     </button>
 
-                    <span className="absolute bottom-3 left-3 text-xs text-white bg-black/55 rounded-md px-2 py-1">
+                    {/* Slide count */}
+                    <span className="absolute bottom-3 left-3 text-xs text-white bg-black/55 rounded-md px-2 py-1 z-10">
                         {slideIndex + 1} / {imgs.length}
                     </span>
                 </div>
 
-                {/* Details */}
+
+                {/* Right Content */}
                 <div className="p-4 sm:p-5 md:p-6 space-y-3">
                     <div className="flex flex-wrap items-center gap-2">
                         <p className="text-xl sm:text-2xl font-semibold text-gray-900">
@@ -197,14 +321,13 @@ const PropertyCard = ({ p }) => {
                                 Yearly
                             </span>
                         </p>
-                        <span className="ml-auto inline-flex items-center gap-1 rounded-full bg-yellow-50 text-yellow-700 border border-yellow-200 px-2 py-1 text-xs">
-                            <FaStar className="text-yellow-500" /> {p.rating.toFixed(1)}
+                        <span className="ml-auto inline-flex items-center gap-1 rounded-full bg-green-50 text-green-700 border border-green-200 px-2 py-1 text-xs">
+                            <FaStar className="text-green-500" /> {p.rating.toFixed(1)}
                         </span>
                     </div>
 
                     <p className="text-gray-800 font-medium">{p.title}</p>
 
-                    {/* (Beds/baths/sqft removed as requested earlier) */}
                     <p className="text-gray-900 font-semibold">
                         {p.furnishing} <span className="text-gray-700">| {p.sub}</span>
                     </p>
@@ -214,33 +337,32 @@ const PropertyCard = ({ p }) => {
                         <span className="truncate">{p.location}</span>
                     </div>
 
-                    {/* Actions: wrap on small screens */}
                     <div className="pt-2 flex flex-wrap items-center gap-2">
                         <button
                             type="button"
-                            className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                            className="inline-flex items-center gap-2 rounded-lg shadow-sm bg-blue-50 px-3 py-2 text-sm text-gray-700 hover:bg-blue-100"
                             title="Email"
                             aria-label="Email"
                         >
-                            <FaEnvelope  className="text-blue-500"/>
+                            <FaEnvelope className="text-blue-500" />
                             <span className="hidden sm:inline">Email</span>
                         </button>
                         <button
                             type="button"
-                            className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                            className="inline-flex items-center gap-2 rounded-lg bg-red-50 shadow-sm px-3 py-2 text-sm text-gray-700 hover:bg-red-100"
                             title="Call"
                             aria-label="Call"
                         >
-                            <FaPhoneAlt  className="text-red-500"/>
+                            <FaPhoneAlt className="text-red-500" />
                             <span className="hidden sm:inline">Call</span>
                         </button>
                         <button
                             type="button"
-                            className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm text-gray-700 hover:bg-emerald-50"
+                            className="inline-flex items-center gap-2 rounded-lg bg-green-50 shadow-sm px-3 py-2 text-sm text-gray-700 hover:bg-green-100"
                             title="WhatsApp"
                             aria-label="WhatsApp"
                         >
-                            <FaWhatsapp  className="text-green-600"/>
+                            <FaWhatsapp className="text-green-600" />
                             <span className="hidden sm:inline">WhatsApp</span>
                         </button>
 
