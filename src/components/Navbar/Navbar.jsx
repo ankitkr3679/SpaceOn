@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import {
   Menu,
@@ -40,10 +41,9 @@ const Header = () => {
       variants={itemVariants}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className={`px-3 py-2 text-gray-700 font-medium transition flex items-center gap-2 ${mobile ? "w-full justify-center" : ""
-        }`}
+      className={`px-3 py-2 text-sm text-gray-700 font-medium transition flex items-center gap-2 ${mobile ? "w-full justify-center" : ""}`}
     >
-      <PlusCircle size={18} />
+      <PlusCircle size={16} />
       List your space
     </motion.button>
   );
@@ -53,28 +53,27 @@ const Header = () => {
       variants={itemVariants}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className={`px-3 py-2 bg-[#020A64] rounded-lg text-white font-medium shadow-md hover:shadow-lg transition flex items-center gap-2 ${mobile ? "w-full justify-center" : ""
-        }`}
+      className={`px-3 py-2 text-sm bg-[#020A64] rounded-lg text-white font-light shadow-md hover:shadow-lg transition flex items-center gap-2 ${mobile ? "w-full justify-center" : ""}`}
     >
-      <UserPlus size={18} />
+      {/* <UserPlus size={16} /> */}
       <span>Login / Signup</span>
     </motion.button>
   );
 
   return (
-    <header className="sticky top-0 z-50 bg-white/70 backdrop-blur-xl shadow-md border-b">
+    <header className="sticky top-0 z-50 bg-white/70 backdrop-blur-xl shadow-md">
       <motion.nav
         role="navigation"
         aria-label="Main navigation"
         variants={navVariants}
         initial="hidden"
         animate="show"
-        className="container mx-auto flex items-center justify-between px-4 py-3"
+        className="w-[93%] mx-auto flex items-center justify-between py-3"
       >
         {/* Logo */}
         <motion.div variants={itemVariants}>
           <Link to="/" className="flex items-center">
-            <div className="font-bold text-2xl md:text-3xl text-[#020A64] tracking-wide">
+            <div className="font-bold text-xl md:text-2xl text-[#020A64] tracking-wide">
               SpaceOn
             </div>
           </Link>
@@ -82,7 +81,7 @@ const Header = () => {
 
         {/* Desktop Nav */}
         <motion.ul
-          className="hidden md:flex flex-1 justify-center items-center gap-10 text-gray-700 font-medium"
+          className="hidden md:flex flex-1 justify-center items-center gap-8 text-sm text-gray-700 font-medium"
           variants={navVariants}
         >
           {links.map((link) => (
@@ -95,13 +94,12 @@ const Header = () => {
                   whileHover={{ scale: 1.25, rotate: 7 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <link.icon className="w-5 h-5 text-[#020A64]" aria-hidden="true" />
+                  <link.icon className="w-4 h-4 text-gray-700" aria-hidden="true" />
                 </motion.div>
                 <span className="relative">
                   {link.name}
                   <span
-                    className="absolute left-0 -bottom-1 h-[2px] w-0 bg-[#020A64] 
-                       transition-all duration-300 group-hover:w-full"
+                    className="absolute left-0 -bottom-1 h-[2px] w-0 bg-gray-700 transition-all duration-300 group-hover:w-full"
                   />
                 </span>
               </Link>
@@ -129,7 +127,7 @@ const Header = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
           >
-            {isOpen ? <X size={26} /> : <Menu size={26} />}
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </motion.button>
         </div>
       </motion.nav>
@@ -144,7 +142,7 @@ const Header = () => {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <ul className="flex flex-col gap-4 p-4 text-gray-700 font-medium">
+            <ul className="flex flex-col gap-4 p-4 text-sm text-gray-700 font-medium">
               {links.map((link, index) => (
                 <motion.li
                   key={link.name}
@@ -158,7 +156,7 @@ const Header = () => {
                     onClick={() => setIsOpen(false)}
                     className="flex items-center gap-3 hover:text-blue-900 transition"
                   >
-                    <link.icon className="w-5 h-5 text-[#020A64]" aria-hidden="true" />
+                    <link.icon className="w-4 h-4 text-[#020A64]" aria-hidden="true" />
                     <span>{link.name}</span>
                   </Link>
                 </motion.li>

@@ -41,15 +41,16 @@ const HeroSearchSection = () => {
             </span>
 
             {/* Scrollable categories */}
-            <div className="flex gap-8 overflow-x-auto scrollbar-hide">
+            <div className="flex gap-2 overflow-x-auto scrollbar-hide">
               {categories.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`px-3 py-1 text-sm sm:text-base rounded-md font-medium transition whitespace-nowrap ${activeCategory === cat
-                      ? "bg-[#020A64] text-white shadow-md"
-                      : "text-white hover:bg-[#020A64] hover:text-white"
+                  className={`px-4 py-2 text-sm sm:text-[15px] rounded-full font-normal transition whitespace-nowrap ${activeCategory === cat
+                    ? "bg-[#020A64] text-white shadow-md"
+                    : "text-white hover:bg-[#020A64] hover:text-white"
                     }`}
+
                 >
                   {cat}
                 </button>
