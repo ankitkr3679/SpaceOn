@@ -64,7 +64,7 @@ const HeroSearchSection = () => {
             <div className="flex-1 w-full bg-white rounded-md shadow-lg border border-gray-200">
               <input
                 type="text"
-                placeholder="Search for anything..."
+                placeholder={`Search for ${activeCategory}`}
                 className="w-full px-4 py-2 sm:px-5 sm:py-3 text-gray-700 outline-none text-sm sm:text-base rounded-md"
               />
             </div>
