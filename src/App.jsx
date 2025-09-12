@@ -13,7 +13,7 @@ import Dashboard from "./Pages/Dashboard";
 import Popular from "./components/Popular";
 import Detail from "./Pages/Detail";
 import Categories from "./components/Categories";
-
+import ScrollToTop from "./components/ScrollToTop";
 
 
 const router = createBrowserRouter([
@@ -21,9 +21,10 @@ const router = createBrowserRouter([
     path: "/",
     element: (
       <>
+        <ScrollToTop />
         <Navbar />
         <Home />
-        <Categories/>
+        <Categories />
         <CardSection />
         <Popular />
         <Host />
@@ -35,6 +36,7 @@ const router = createBrowserRouter([
     path: "/booking",
     element: (
       <>
+        <ScrollToTop />
         <BookingNavbar />
         <Booking />
         {/* <Chosebooking /> */}
@@ -43,18 +45,19 @@ const router = createBrowserRouter([
       </>
     ),
   },
-  {
-    path: "/dashboard",
-    element: (
-      <>
-        <Dashboard />
-      </>
-    )
-  },
+  // {
+  //   path: "/dashboard",
+  //   element: (
+  //     <>
+  //       <Dashboard />
+  //     </>
+  //   )
+  // },
   {
     path: "/detail",
     element: (
       <>
+        <ScrollToTop />
         <Navbar />
         <Detail />
         <Footer />

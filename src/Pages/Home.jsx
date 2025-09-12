@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Banner from "../assets/Banner.webp";
+import { Link } from "react-router-dom";
 
 const categories = [
   "All",
@@ -70,9 +71,12 @@ const HeroSearchSection = () => {
             </div>
 
             {/* Button */}
-            <button className="w-full sm:w-auto bg-[#020A64] px-6 sm:px-8 py-2 sm:py-3 rounded-md text-white font-semibold hover:bg-[#010642] transition flex items-center justify-center gap-2 shadow-lg cursor-pointer text-sm sm:text-base">
-              <span>Search</span>
-            </button>
+
+            <Link to="/detail">
+              <button className="w-full sm:w-auto bg-[#020A64] px-6 sm:px-8 py-2 sm:py-3 rounded-md text-white font-semibold hover:bg-[#010642] transition flex items-center justify-center gap-2 shadow-lg cursor-pointer text-sm sm:text-base">
+                <span>Search</span>
+              </button>
+            </Link>
           </div>
         </div>
       </div>

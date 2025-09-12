@@ -42,6 +42,7 @@ const Header = () => {
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       className={`px-3 py-2 text-sm text-gray-700 font-medium transition flex items-center gap-2 ${mobile ? "w-full justify-center" : ""}`}
+      onClick={() => window.location.href = "https://spaceon-host.bitcodehub.in/"}
     >
       <PlusCircle size={16} />
       List your space

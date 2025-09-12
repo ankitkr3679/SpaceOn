@@ -36,7 +36,7 @@ const BecomeHost = () => {
                     Earn by renting it to others
                 </motion.p>
 
-                <Link to="">
+                <Link to="https://spaceon-host.bitcodehub.in/" target="_blank" rel="noopener noreferrer">
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}

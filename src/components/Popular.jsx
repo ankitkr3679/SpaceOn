@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
     Car,
     Building2,
@@ -86,6 +87,8 @@ const categories = [
 
 const PopularCategories = () => {
     const [expanded, setExpanded] = React.useState({});
+    const navigate = useNavigate();
+
     const toggle = (idx) => setExpanded((prev) => ({ ...prev, [idx]: !prev[idx] }));
 
     return (
@@ -101,7 +104,11 @@ const PopularCategories = () => {
                     const visibleItems = isOpen ? cat.items : cat.items.slice(0, 3);
 
                     return (
-                        <div key={index} className="flex flex-col min-w-0">
+                        <div
+                            key={index}
+                            className="flex flex-col min-w-0 cursor-pointer transform transition-transform duration-200 hover:scale-105"
+                            onClick={() => navigate("/detail")} // Navigate on click
+                        >
                             <div className="flex items-center mb-1.5">
                                 {cat.icon}
                                 <h3 className="text-[#020A64] font-semibold text-sm sm:text-base truncate">
@@ -123,7 +130,7 @@ const PopularCategories = () => {
                             {cat.items.length > 3 && (
                                 <button
                                     type="button"
-                                    onClick={() => toggle(index)}
+                                    onClick={(e) => { e.stopPropagation(); toggle(index); }} // prevent navigation when toggling
                                     aria-expanded={isOpen}
                                     className="mt-1 text-[#020A64] text-[12px] sm:text-sm font-semibold inline-flex items-center hover:underline"
                                 >

@@ -860,11 +860,11 @@ const ListingDetails = () => {
                   <p className="text-base font-semibold text-gray-900">{l.size}</p>
                 </div>
                 <div className="pt-1">
-                  <Link to="/detail">
-                    <button className="w-full text-sm font-medium text-[#020A64] border border-[#020A64] rounded-lg py-2 hover:bg-[#020A64] hover:text-white active:scale-[0.99] transition">
-                      View Details
-                    </button>
-                  </Link>
+                  {/* <Link to="/detail"> */}
+                  <button className="w-full text-sm font-medium text-[#020A64] border border-[#020A64] rounded-lg py-2 hover:bg-[#020A64] hover:text-white active:scale-[0.99] transition">
+                    View Details
+                  </button>
+                  {/* </Link> */}
                 </div>
               </div>
             </article>

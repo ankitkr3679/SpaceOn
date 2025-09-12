@@ -69,7 +69,7 @@
 
 
 // "use client";
-
+import { useNavigate } from "react-router-dom";
 import React from "react";
 import {
     Car,
@@ -97,11 +97,13 @@ const categories = [
 ];
 
 function CategoryCard({ icon: Icon, title }) {
+    const navigate = useNavigate();
     return (
         <button
             type="button"
             aria-label={title}
             className="relative flex flex-col items-center gap-3 min-w-[100px] focus:outline-none"
+            onClick={() => navigate(`/detail?title=${encodeURIComponent(title)}`)}
         >
             {/* Gradient chip - Light only */}
             <div className="w-14 h-14 rounded-xl bg-[radial-gradient(120%_120%_at_0%_0%,#F6F7FF_0%,#E9EBFA_60%,#E1E4FF_100%)] text-[#020A64] shadow-sm ring-1 ring-black/5 grid place-items-center">
