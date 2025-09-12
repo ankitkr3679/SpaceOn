@@ -80,6 +80,7 @@ const HeroSearchSection = () => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };
