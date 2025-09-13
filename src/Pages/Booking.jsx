@@ -120,15 +120,15 @@ const ExpandableText = () => {
 //   </div>
 // );
 
-const FeatureStatCard = ({ icon, label, value }) => (
-  <div className="bg-white p-3 rounded-xl text-center  shadow-sm hover:shadow-md transition-all duration-200">
-    <div className="flex justify-center items-center w-10 h-10 mx-auto mb-2 rounded-full bg-[#020A64]/10 text-gray-500 text-lg">
+const FeatureStatCard = ({ icon, label }) => (
+  <div className="bg-gray-100 aspect-square flex flex-col justify-center items-center p-4 rounded-2xl   transition-all duration-200">
+    <div className="flex justify-center items-center mb-3 text-red-500 text-2xl">
       {icon}
     </div>
-    <p className="text-gray-500 text-xs">{label}</p>
-    <p className="font-semibold text-sm text-[#020A64]">{value}</p>
+    <p className="text-gray-800  text-sm">{label}</p>
   </div>
 );
+
 
 
 // ---------- Feature Data ----------
@@ -167,13 +167,14 @@ const FEATURE_STATS = [
 // };
 const FeatureStatsSection = () => {
   return (
-    <section className="w-full "> {/* reduced vertical padding */}
+    <section className="w-full">
       <div
         className="
-          grid gap-3          /* smaller gap between cards */
+          grid gap-3
           grid-cols-1
           sm:grid-cols-2
           md:grid-cols-3
+          lg:grid-cols-5
         "
       >
         {FEATURE_STATS.map((stat, index) => (
@@ -189,6 +190,7 @@ const FeatureStatsSection = () => {
     </section>
   );
 };
+
 
 
 /* ---------- Tabs Content ---------- */
@@ -507,12 +509,12 @@ const PropertyHeader = () => {
     <section className="w-full bg-white rounded-2xl p-4">
       <div className="flex flex-col md:flex-row justify-between gap-6 items-start">
         {/* Left Section */}
-        <div className="flex-1 space-y-4">
+        <div className="flex-1 space-y-2">
           {/* Price + Favorite + Share */}
           <div className="flex items-start justify-between flex-wrap gap-4">
-            <h2 className="text-2xl font-semibold text-[#020A64]">
-              AED <span className="text-[#020A64]">140,000</span>{" "}
-              <span className="text-sm font-normal text-[#020A64]">Yearly</span>
+            <h2 className="text[16px]  ">
+              AED <span className="">140,000</span>{" "}
+              <span className="text-sm font-normal ">Yearly</span>
             </h2>
             <div className="flex items-center gap-3 flex-wrap">
               <div className="flex items-center gap-3 flex-wrap">
@@ -532,23 +534,23 @@ const PropertyHeader = () => {
           {/* Property Info */}
           <div className="flex flex-wrap gap-6 text-gray-600">
             <div className="flex items-center gap-1">
-              <User size={18} className="text-[#020A64]" />
+              <User size={18} className="" />
               <span>500 +</span>
             </div>
             <div className="flex items-center gap-1">
-              <Power size={18} className="text-[#020A64]" />
+              <Power size={18} className="" />
               <span>200 watt</span>
             </div>
             <div className="flex items-center gap-1">
-              <SiZebpay size={18} className="text-[#020A64]" />
+              <SiZebpay size={18} className="" />
               <span>8,211 sqft</span>
             </div>
           </div>
 
           {/* Subtitle (Event Info) */}
           <div className="flex items-center gap-2 text-gray-600 mt-1">
-            <MapPin size={18} className="text-blue-500" />
-            <span className="text-[#020A64]">
+            <MapPin size={18} className="" />
+            <span className="">
               Live Concert | 25th Sept 2025 | Dubai Expo Center
             </span>
           </div>
