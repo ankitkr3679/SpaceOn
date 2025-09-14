@@ -100,7 +100,7 @@ const SpecificationsPane = () => {
                 {specs.map((item, idx) => (
                     <div
                         key={idx}
-                        className="rounded-2xl border bg-white/70 backdrop-blur p-4 shadow-sm hover:shadow-md transition"
+                        className="rounded-sm border bg-white/70 backdrop-blur p-4 shadow-sm hover:shadow-md transition"
                     >
                         <div className="flex items-start gap-3">
                             <div className="shrink-0 w-10 h-10 rounded-xl bg-indigo-50 text-indigo-700 grid place-items-center text-lg">

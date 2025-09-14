@@ -120,26 +120,52 @@ const ExpandableText = () => {
 //   </div>
 // );
 
+// const FeatureStatCard = ({ icon, label }) => (
+//   <div className="bg-gray-100 aspect-square flex flex-col justify-center items-center p-4 rounded-2xl   transition-all duration-200">
+//     <div className="flex justify-center items-center mb-3 text-red-500 text-2xl">
+//       {icon}
+//     </div>
+//     <p className="text-gray-800  text-sm">{label}</p>
+//   </div>
+// );
+
 const FeatureStatCard = ({ icon, label }) => (
-  <div className="bg-gray-100 aspect-square flex flex-col justify-center items-center p-4 rounded-2xl   transition-all duration-200">
-    <div className="flex justify-center items-center mb-3 text-red-500 text-2xl">
-      {icon}
+  <div className="bg-gray-100 aspect-square flex flex-col justify-center items-center p-4 rounded-2xl transition-all duration-200">
+    <div className="flex justify-center items-center mb-3">
+      <img
+        src={icon}
+        alt={label}
+        className="w-10 h-10 object-contain"
+      />
     </div>
-    <p className="text-gray-800  text-sm">{label}</p>
+    <p className="text-gray-800 font-semibold text-sm text-center">{label}</p>
+
   </div>
 );
 
 
 
+
 // ---------- Feature Data ----------
+// const FEATURE_STATS = [
+//   { label: "Price", value: "AED 2,500,000 / yr", icon: <FaDollarSign /> },
+//   { label: "Size", value: "49,464 sq ft", icon: <FaRulerCombined /> },
+//   { label: "Power", value: "150 kW", icon: <FaBolt /> },
+//   { label: "Parking", value: "Yes • 50 cars", icon: <FaCar /> },
+//   { label: "Price", value: "AED 2,500,000 / yr", icon: <FaDollarSign /> },
+//   { label: "Size", value: "49,464 sq ft", icon: <FaRulerCombined /> },
+// ];
 const FEATURE_STATS = [
-  { label: "Price", value: "AED 2,500,000 / yr", icon: <FaDollarSign /> },
-  { label: "Size", value: "49,464 sq ft", icon: <FaRulerCombined /> },
-  { label: "Power", value: "150 kW", icon: <FaBolt /> },
-  { label: "Parking", value: "Yes • 50 cars", icon: <FaCar /> },
-  { label: "Price", value: "AED 2,500,000 / yr", icon: <FaDollarSign /> },
-  { label: "Size", value: "49,464 sq ft", icon: <FaRulerCombined /> },
+  { label: "Central A/C & Heating", value: "Available", icon: "https://static.dubizzle.com/frontend-web/static-resources/assets/images/central_ac_and_heating.svg" },
+  { label: "Balcony", value: "Available", icon: "https://static.dubizzle.com/frontend-web/static-resources/assets/images/balcony_.svg" },
+  { label: "Private Garden", value: "Available", icon: "https://static.dubizzle.com/frontend-web/static-resources/assets/images/private_garden.svg" },
+  { label: "Private Gym", value: "Available", icon: "https://static.dubizzle.com/frontend-web/static-resources/assets/images/private_gym.svg" },
+  { label: "Shared Pool", value: "Available", icon: "https://static.dubizzle.com/frontend-web/static-resources/assets/images/swimming_pool.svg" },
+  { label: "Security", value: "Available", icon: "https://static.dubizzle.com/frontend-web/static-resources/assets/images/security_.svg" },
+  { label: "Kids Play Area", value: "Available", icon: "https://static.dubizzle.com/frontend-web/static-resources/assets/images/kids_play_area.svg" },
+  { label: "Barbeque Area", value: "Available", icon: "https://static.dubizzle.com/frontend-web/static-resources/assets/images/barbecue_area.svg" },
 ];
+
 
 // ---------- Feature Stats Section ----------
 // const FeatureStatsSection = () => {
@@ -174,7 +200,7 @@ const FeatureStatsSection = () => {
           grid-cols-1
           sm:grid-cols-2
           md:grid-cols-3
-          lg:grid-cols-5
+          lg:grid-cols-6
         "
       >
         {FEATURE_STATS.map((stat, index) => (
@@ -209,14 +235,14 @@ const SpecificationsPane = () => {
       <h4 className="text-lg font-semibold text-gray-900">Technical Specifications</h4>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {specs.map((item, idx) => (
-          <div key={idx} className="rounded-2xl border bg-white/70 backdrop-blur p-4 shadow-sm hover:shadow-md transition">
+          <div key={idx} className="rounded-2xl border border-gray-300 bg-white/70 backdrop-blur p-4 shadow-sm hover:shadow-md transition">
             <div className="flex items-start gap-3">
               <div className="shrink-0 w-10 h-10 rounded-xl bg-indigo-50 text-indigo-700 grid place-items-center text-lg">
                 {item.icon}
               </div>
               <div>
                 <dt className="text-sm text-gray-500">{item.label}</dt>
-                <dd className="text-base font-semibold text-gray-900">{item.value}</dd>
+                <dd className="text-base  text-gray-900">{item.value}</dd>
               </div>
             </div>
           </div>
@@ -244,7 +270,7 @@ const RulesPane = () => {
       <h4 className="text-lg font-semibold text-gray-900">Rules</h4>
       <ul className="space-y-3">
         {rules.map((r, i) => (
-          <li key={i} className="flex items-start gap-3 bg-white rounded-2xl border p-3 shadow-sm">
+          <li key={i} className="flex items-start gap-3 bg-white rounded-md border-gray-300 border p-3 shadow-sm">
             <span className="mt-0.5">{iconFor(r.type)}</span>
             <span className="text-sm text-gray-800">{r.text}</span>
           </li>
@@ -275,7 +301,7 @@ const ReviewsPane = () => {
 
       <div className="space-y-4">
         {reviews.map((r, i) => (
-          <div key={i} className="border rounded-2xl p-4 bg-white shadow-sm hover:shadow-md transition">
+          <div key={i} className="border border-gray-300 rounded-2xl p-4 bg-white shadow-sm hover:shadow-md transition">
             <div className="flex items-start justify-between">
               <div className="flex items-center gap-3">
                 <Avatar name={r.name} />
@@ -298,7 +324,7 @@ const ReviewsPane = () => {
           </div>
         ))}
       </div>
-      <button className="mt-2 inline-flex items-center justify-center rounded-xl border px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition">
+      <button className="mt-2 inline-flex border-gray-300 hover:border-gray items-center justify-center rounded-xl border px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition">
         See all reviews
       </button>
     </div>
@@ -321,7 +347,7 @@ const FaqItem = React.memo(function FaqItem({
   const alignText = align === "center" ? "text-center" : "text-left";
 
   return (
-    <div className={`border border-gray-200 rounded-2xl shadow-sm transition-all duration-300 ${isOpen ? "bg-white shadow-md" : "bg-white/90 hover:shadow-md"}`}>
+    <div className={`border border-gray-200 rounded-2xl  transition-all duration-300 ${isOpen ? "bg-white shadow-md" : "bg-white/90 hover:shadow-md"}`}>
       <button
         onClick={() => onToggle(index)}
         aria-expanded={isOpen}
@@ -329,7 +355,7 @@ const FaqItem = React.memo(function FaqItem({
         id={buttonId}
         className="relative w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#020A64] rounded-2xl"
       >
-        <span className={`flex-1 ${alignText} text-[15px] sm:text[17px] md:text-lg font-semibold text-[#020A64] leading-snug`}>
+        <span className={`flex-1 ${alignText} text-[15px] sm:text[17px] md:text-lg font-semibold  leading-snug`}>
           {question}
         </span>
         <ChevronDown
@@ -400,7 +426,7 @@ const FaqSection = ({ items = FAQS, singleOpen = true, defaultOpen = null, align
   return (
     <section className="py-10 sm:py-14 md:py-16 bg-gradient-to-b from-gray-50 to-white rounded-3xl">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-        <div className="space-y-4 sm:space-y-5 max-w-3xl mx-auto">
+        <div className=" sm:space-y-5 max-w-3xl mx-auto">
           {items.map((faq, index) => (
             <FaqItem
               key={index}
@@ -420,89 +446,6 @@ const FaqSection = ({ items = FAQS, singleOpen = true, defaultOpen = null, align
   );
 };
 
-// /* ---------- Property Header (Responsive) ---------- */
-// const PropertyHeader = () => {
-//   return (
-//     <section className="w-full bg-white rounded-2xl  p-2">
-//       <div className="flex flex-col md:flex-row justify-between gap-6 items-start">
-//         {/* Left Section */}
-//         <div className="flex-1 space-y-4">
-//           {/* Price + Favorite + Share */}
-//           <div className="flex items-center justify-between flex-wrap gap-4">
-//             <h2 className="text-2xl font-bold text-[#020A64]">
-//               AED <span className="text-[#020A64]">140,000</span>{" "}
-//               <span className="text-sm font-medium text-[#020A64]">Yearly</span>
-//             </h2>
-//             <div className="flex items-center gap-3 flex-wrap">
-//               <button className="flex items-center gap-2 px-3 py-2 rounded-md border hover:bg-gray-100 text-sm font-medium">
-//                 <Heart size={18} className="text-red-600" />
-//                 <span>Favorite</span>
-//               </button>
-//               <button className="flex items-center gap-2 px-3 py-2 rounded-md border hover:bg-gray-100 text-sm font-medium">
-//                 <Share2 size={18} className="text-green-600" />
-//                 <span>Share</span>
-//               </button>
-//             </div>
-//           </div>
-
-//           {/* Property Info */}
-//           <div className="flex flex-wrap gap-4 text-gray-600">
-//             <div className="flex items-center gap-1">
-//               <User size={18} className="text-[#020A64]" />
-//               <span>500 +</span>
-//             </div>
-//             <div className="flex items-center gap-1">
-//               <Power size={18} className=" text-[#020A64]" />
-//               <span className="text-gray-600">200 watt</span>
-//             </div>
-//             <div className="flex items-center gap-1">
-//               <SiZebpay size={18} className="text-[#020A64]" />
-//               <span className="text-gray-600">8,211 sqft</span>
-//             </div>
-//           </div>
-
-//           {/* Subtitle (Event Info) */}
-//           <div className="flex items-center gap-2 text-gray-600 mt-1">
-//             <MapPin size={18} className="text-blue-500" />
-//             <span className="text-[#020A64]">
-//               Live Concert | 25th Sept 2025 | Dubai Expo Center
-//             </span>
-//           </div>
-//         </div>
-
-//         {/* Right Section - Agent Card */}
-//         <div className="flex-shrink-0 p-4 border rounded-md space-y-3 w-full md:w-[320px]">
-//           <div className="flex items-center gap-3">
-//             <img
-//               src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=500&auto=format&fit=crop&q=60"
-//               alt="Agent"
-//               className="w-16 h-16 rounded-md object-cover"
-//             />
-//             <div>
-//               <h4 className="font-semibold text-gray-900">Emad Abd El Hameid</h4>
-//               <a href="#" className="text-sm text-[#020A64] hover:underline">
-//                 View All Properties
-//               </a>
-//             </div>
-//           </div>
-
-//           <div className="flex flex-wrap lg:flex-nowrap gap-2 pt-2">
-//             <button className="flex-1 lg:flex-none flex items-center justify-center gap-2 px-3 py-2 border rounded-lg text-sm font-medium hover:bg-gray-50 transition">
-//               <Mail size={16} className="text-blue-500" /> Email
-//             </button>
-//             <button className="flex-1 lg:flex-none flex items-center justify-center gap-2 px-3 py-2 border rounded-lg text-sm font-medium hover:bg-gray-50 transition">
-//               <Phone size={16} className="text-red-500" /> Call
-//             </button>
-//             <button className="flex-1 lg:flex-none flex items-center justify-center gap-2 px-3 py-2 border rounded-lg text-sm font-medium hover:bg-gray-50 transition">
-//               <BsWhatsapp size={16} className="text-green-500" /> WhatsApp
-//             </button>
-//           </div>
-
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
 /* ---------- Property Header (Responsive) ---------- */
 const PropertyHeader = () => {
   return (
@@ -512,18 +455,19 @@ const PropertyHeader = () => {
         <div className="flex-1 space-y-2">
           {/* Price + Favorite + Share */}
           <div className="flex items-start justify-between flex-wrap gap-4">
-            <h2 className="text[16px]  ">
-              AED <span className="">140,000</span>{" "}
-              <span className="text-sm font-normal ">Yearly</span>
+            <h2 className="text-[20px]">
+              AED <span>140,000</span>{" "}
+              <span className="text-sm font-normal text-[20px] text-gray-500">Yearly</span>
             </h2>
+
             <div className="flex items-center gap-3 flex-wrap">
               <div className="flex items-center gap-3 flex-wrap">
-                <button className="flex items-center gap-2 px-4 py-2 rounded-md shadow-sm bg-red-50 hover:bg-red-100 transition-all duration-200 text-sm font-medium text-gray-800 border border-gray-200">
-                  <Heart size={18} className="text-red-500" />
+                <button className="flex items-center gap-2 px-3 py-1 rounded-md  bg-white hover:border-black transition-all duration-200 text-sm font-medium text-gray-800 border border-gray-400">
+                  <Heart size={18} className="text-grey-300" />
                   <span>Favorite</span>
                 </button>
-                <button className="flex items-center gap-2 px-4 py-2 rounded-md shadow-sm bg-green-50 hover:bg-green-100 transition-all duration-200 text-sm font-medium text-gray-800 border border-gray-200">
-                  <Share2 size={18} className="text-green-500" />
+                <button className="flex items-center gap-2 px-3 py-1 rounded-md  bg-white hover:border-black transition-all duration-200 text-sm font-medium text-gray-800 border border-gray-400">
+                  <Share2 size={18} className="text-grey-300" />
                   <span>Share</span>
                 </button>
               </div>
@@ -575,13 +519,13 @@ const PropertyHeader = () => {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-2">
-            <button className="flex-1 flex items-center justify-center gap-2 px-3 py-2 shadow-sm rounded-lg text-sm font-medium bg-blue-50 hover:bg-blue-100 transition">
+            <button className="flex-1 flex items-center justify-center gap-2 px-3 py-2  rounded-lg text-sm font-medium bg-blue-50 hover:bg-blue-100 transition">
               <Mail size={16} className="text-blue-500" /> Email
             </button>
-            <button className="flex-1 flex items-center justify-center gap-2 px-3 py-2 shadow-sm rounded-lg text-sm font-medium bg-red-50 hover:bg-red-100 transition">
+            <button className="flex-1 flex items-center justify-center gap-2 px-3 py-2  rounded-lg text-sm font-medium bg-red-50 hover:bg-red-100 transition">
               <Phone size={16} className="text-red-500" /> Call
             </button>
-            <button className="flex-1 flex items-center justify-center gap-2 px-3 py-2 shadow-sm rounded-lg text-sm font-medium bg-green-50 hover:bg-green-50 transition">
+            <button className="flex-1 flex items-center justify-center gap-2 px-3 py-2  rounded-lg text-sm font-medium bg-green-50 hover:bg-green-50 transition">
               <BsWhatsapp size={16} className="text-green-500" /> WhatsApp
             </button>
           </div>
@@ -685,109 +629,59 @@ const ListingDetails = () => {
       <PropertyHeader />
 
       {/* Feature stats + Reservation card (60/40 on md+) */}
-      <section className="grid grid-cols-1 md:grid-cols-10 gap-8 items-start">
-        {/* Left: Feature stats (60%) */}
-        <div className="md:col-span-6">
+      <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+        {/* Left: Feature stats (takes 8/12) */}
+        <div className="md:col-span-8">
           <FeatureStatsSection />
         </div>
 
-        {/* Right: Reservation card (40%) */}
-        {/* <aside className="md:col-span-4 w-full bg-[#020A64] text-white rounded-2xl shadow-xl p-3 flex flex-col gap-6 md:sticky md:top-24">
-          <div>
-            <p className="text-sm text-white/70">Estimated monthly</p>
-            <p className="text-3xl font-bold tracking-tight">AED 208,333</p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4">
-            <div className="w-full space-y-1">
-              <label htmlFor="start-date" className="text-xs text-white/80">Start date</label>
-              <input
-                id="start-date"
-                type="date"
-                min={today}
-                className="w-full rounded-lg px-3 py-2 bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
-                aria-label="Start date"
-              />
-            </div>
-            <div className="w-full space-y-1">
-              <label htmlFor="end-date" className="text-xs text-white/80">End date</label>
-              <input
-                id="end-date"
-                type="date"
-                min={today}
-                className="w-full rounded-lg px-3 py-2 bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
-                aria-label="End date"
-              />
-            </div>
-          </div>
-
-          <button className="w-full rounded-lg bg-white text-[#020A64] font-semibold text-sm py-3 hover:bg-white/90 transition">
-            Reserve now
-          </button>
-
-          <div className="mt-3 flex flex-wrap lg:flex-nowrap items-center justify-center  gap-2 lg:gap-4 text-[11px] sm:text-xs">
-            {[
-              { label: "KYC Verified", icon: <FaCheckCircle className="text-emerald-400" /> },
-              { label: "Secure payments", icon: <FaShieldAlt className="text-blue-400" /> },
-              { label: "24/7 Support", icon: <FaHeadset className="text-indigo-400" /> },
-            ].map((tag, i) => (
-              <span
-                key={i}
-                className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-md bg-white/10 border border-white/20 backdrop-blur-sm text-white hover:bg-white/20 transition whitespace-nowrap"
-              >
-                <span className="text-base leading-none">{tag.icon}</span>
-                <span className="leading-none">{tag.label}</span>
-              </span>
-            ))}
-          </div>
-        </aside>
-         */}
-        <aside className="md:col-span-4 w-full bg-[#020A64] text-white rounded-2xl shadow-xl p-6 flex flex-col gap-6 md:sticky md:top-24">
+        {/* Right: Reservation card (takes 4/12) */}
+        <aside className="md:col-span-4 w-full max-w-sm bg-gray-100 text-gray-900 rounded-2xl shadow-md p-5 flex flex-col gap-5 md:sticky md:top-24 self-start">
           {/* Estimated Monthly */}
           <div className="text-center">
-            <p className="text-sm text-white/70">Estimated monthly</p>
-            <p className="text-3xl font-bold tracking-tight mt-1">AED 208,333</p>
+            <p className="text-sm text-gray-500">Estimated monthly</p>
+            <p className="text-2xl font-bold tracking-tight mt-1">AED 208,333</p>
           </div>
 
           {/* Date Inputs */}
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-3">
             <div className="flex-1 flex flex-col gap-1">
-              <label htmlFor="start-date" className="text-xs text-white/80">Start date</label>
+              <label htmlFor="start-date" className="text-xs text-gray-600">Start date</label>
               <input
                 id="start-date"
                 type="date"
                 min={today}
-                className="w-full rounded-lg px-4 py-2 bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
+                className="w-full rounded-lg px-3 py-2 bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-gray-300"
                 aria-label="Start date"
               />
             </div>
             <div className="flex-1 flex flex-col gap-1">
-              <label htmlFor="end-date" className="text-xs text-white/80">End date</label>
+              <label htmlFor="end-date" className="text-xs text-gray-600">End date</label>
               <input
                 id="end-date"
                 type="date"
                 min={today}
-                className="w-full rounded-lg px-4 py-2 bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
+                className="w-full rounded-lg px-3 py-2 bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-gray-300"
                 aria-label="End date"
               />
             </div>
           </div>
 
           {/* Reserve Button */}
-          <button className="w-full rounded-lg bg-white text-[#020A64] font-semibold text-sm py-3 hover:bg-white/90 transition">
+          <button className="w-full rounded-lg bg-gray-300 text-gray-900 font-semibold text-sm py-3 hover:bg-gray-400 transition">
             Reserve now
           </button>
 
           {/* Feature Tags */}
           <div className="mt-3 flex flex-wrap gap-2 justify-center text-xs sm:text-sm">
             {[
-              { label: "KYC Verified", icon: <FaCheckCircle className="text-emerald-400" /> },
-              { label: "Secure payments", icon: <FaShieldAlt className="text-blue-400" /> },
-              { label: "24/7 Support", icon: <FaHeadset className="text-indigo-400" /> },
+              { label: "KYC Verified", icon: <FaCheckCircle className="text-green-500" /> },
+              { label: "Secure payments", icon: <FaShieldAlt className="text-blue-500" /> },
+              { label: "24/7 Support", icon: <FaHeadset className="text-indigo-500" /> },
             ].map((tag, i) => (
               <span
                 key={i}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/10 border border-white/20 backdrop-blur-sm text-white hover:bg-white/20 transition"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gray-200 border border-gray-300 text-gray-700 hover:bg-gray-300 transition"
               >
                 {tag.icon}
                 <span>{tag.label}</span>
@@ -795,8 +689,8 @@ const ListingDetails = () => {
             ))}
           </div>
         </aside>
-
       </section>
+
 
 
       {/* Tabs + Content */}
@@ -863,7 +757,7 @@ const ListingDetails = () => {
                 </div>
                 <div className="pt-1">
                   {/* <Link to="/detail"> */}
-                  <button className="w-full text-sm font-medium text-[#020A64] border border-[#020A64] rounded-lg py-2 hover:bg-[#020A64] hover:text-white active:scale-[0.99] transition">
+                  <button className="w-full text-sm font-medium  border  rounded-lg py-2 hover:bg-[#020A64] hover:text-white active:scale-[0.99] transition">
                     View Details
                   </button>
                   {/* </Link> */}
